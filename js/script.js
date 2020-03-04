@@ -32,16 +32,15 @@ function Hero(image, top, left, width, height) {
     };
 }
 
-
-const HERO_START_HORIZONTAL = 30;
 const HERO_START_VERTICAL = 80;
+const HERO_START_HORIZONTAL = 30;
+let hero = new Hero('img/nyan-cat.gif', HERO_START_VERTICAL, HERO_START_HORIZONTAL, 272 * 0.8, 168 * 0.8);
 let collisionHorizontal = window.innerWidth - hero.width;
 let collisionVertical = window.innerHeight - hero.height;
-let hero = new Hero('img/nyan-cat.gif', HERO_START_VERTICAL, HERO_START_HORIZONTAL, 272 * 0.8, 168 * 0.8);
 
 function start() {
     if (hero.left < collisionHorizontal &&
-        hero.top === HERO_START_VERTICAL) {
+        hero.top <= HERO_START_VERTICAL) {
         hero.moveRight();
     } else if (hero.left > collisionHorizontal &&
         hero.top < collisionVertical) {
